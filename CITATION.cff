@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "Please cite this software and acknowledge the external MVGGT backbone separately."
-title: "Grounded Language States for Sparse Multi-View Referring Segmentation"
+title: "GLC: Grounded Language Composition for Sparse Multi-View Referring Segmentation"
 type: software
 authors:
   - family-names: Song
     given-names: Chuanle
 version: 0.1.0
 license: MIT
-repository-code: "https://github.com/songchuanle-1/RPM"
+repository-code: "https://github.com/songchuanle-1/GLC"

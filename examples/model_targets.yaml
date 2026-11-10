@@ -1,8 +1,11 @@
-# Model targets for a separately obtained and locally integrated MVGGT.
+# GLC model targets for a separately obtained and locally integrated MVGGT.
+# These are direct aliases; the historical rpm package and model classes remain.
+glc: rpm.controls.MVGGT_GLC
+shared_visual_read: rpm.controls.MVGGT_GLC_SharedVisualRead
+no_visual_read: rpm.controls.MVGGT_GLC_NoVisualRead
+self_only_composition: rpm.controls.MVGGT_GLC_SelfOnlyComposition
+no_token_write: rpm.controls.MVGGT_GLC_NoTokenWrite
+no_composed_write: rpm.controls.MVGGT_GLC_NoComposedWrite
+plain_fusion: rpm.controls.MVGGT_GLC_PlainFusion
+# Legacy condition key retained for existing experiment configurations.
 rpm: rpm.controls.MVGGT_M93_RPM
-shared_visual_read: rpm.controls.MVGGT_M93_SharedVisualRead
-no_visual_read: rpm.controls.MVGGT_M93_NoVisualRead
-self_only_composition: rpm.controls.MVGGT_M93_SelfOnlyComposition
-no_token_write: rpm.controls.MVGGT_M93_NoTokenWrite
-no_composed_write: rpm.controls.MVGGT_M93_NoComposedWrite
-plain_fusion: rpm.controls.MVGGT_M93_PlainFusion

@@ -1,8 +1,15 @@
-# RPM: Recurrent Phrase Memory
+# GLC: Grounded Language Composition for Sparse Multi-View Referring Segmentation
 
-Research code for **Recurrent Phrase Memory (RPM)**, the **read → compose → write**
-language-state extension in *Grounded Language States for Sparse Multi-View
-Referring Segmentation*, built around an external MVGGT backbone.
+Research code for **Grounded Language Composition (GLC)**, a
+**read → compose → write** language-state extension built around an external
+MVGGT backbone.
+
+GLC is the current paper and method name. The distribution `multiview-rpm`,
+Python package `rpm`, existing model class names, and `m93_rpm` integration path
+retain their historical implementation names for compatibility with research
+code and checkpoints.
+The GLC model aliases refer directly to the existing classes; they do not change
+memory computation or `state_dict` keys.
 
 This release contains the method implementation, six controls, CPU tests, and
 a local integration tool. The backbone, datasets, pretrained assets, trained
@@ -34,8 +41,8 @@ Python 3.10+ and PyTorch 2.5+ are required. Install the appropriate
 [PyTorch build](https://pytorch.org/get-started/locally/) first, then:
 
 ```bash
-git clone https://github.com/songchuanle-1/RPM.git
-cd RPM
+git clone https://github.com/songchuanle-1/GLC.git
+cd GLC
 python -m pip install -e .
 python examples/module_demo.py
 python -m unittest discover -s tests -v
@@ -49,7 +56,7 @@ backbone's dependencies and assets.
 
 | Condition | Intervention |
 |---|---|
-| `rpm` | Original token memory, ordered pair composition and both visual writes. |
+| `glc` (legacy key: `rpm`) | Original token memory, ordered pair composition and both visual writes. |
 | `shared_visual_read` | Average only valid-token visual-read evidence and broadcast it before normalization/GRU. |
 | `no_visual_read` | Zero only the added visual read; original PWAM remains. |
 | `self_only_composition` | Replace each source-token contribution by the receiver's own contribution; contextual language embeddings remain. |
@@ -59,7 +66,7 @@ backbone's dependencies and assets.
 
 These controls preserve stored parameters where specified, not necessarily
 active capacity: gated routes can receive zero gradients. At width 1024, the
-plain modules have 26,252,800 parameters, versus RPM's 26,253,312: 512 fewer
+plain modules have 26,252,800 parameters, versus GLC's 26,253,312: 512 fewer
 (about 0.00195%). This is a near parameter match, **not a FLOP or runtime match**.
 
 ## Integrate with a separately obtained MVGGT
@@ -76,12 +83,16 @@ python tools/integrate_mvggt.py \
 ```
 
 Keep that output inside your external checkout, outside this public repository.
-Install this RPM package and put the external checkout on Python's import path.
+Install this package and put the external checkout on Python's import path.
 After integration, model targets are available from `rpm.controls`:
 
 ```python
-from rpm.controls import MVGGT_M93_RPM, MVGGT_M93_SelfOnlyComposition
+from rpm.controls import MVGGT_GLC, MVGGT_GLC_SelfOnlyComposition
 ```
+
+The historical targets, including `rpm.controls.MVGGT_M93_RPM`, remain available.
+See [the target mapping](examples/model_targets.yaml) for GLC aliases and legacy
+identifiers.
 
 The full model still needs the external Pi3 initializer, RoBERTa assets, and the
 backbone's configuration. See [full-model setup](docs/INTEGRATION.md) for targets,

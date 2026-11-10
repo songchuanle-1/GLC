@@ -1,4 +1,9 @@
-# Full-model integration
+# GLC full-model integration
+
+GLC is the current paper and method name. The `multiview-rpm` distribution,
+`rpm` Python package, `m93_rpm` integration path, and existing model class names
+retain their historical implementation identifiers. The GLC targets are direct aliases of
+those classes, preserving their computation and checkpoint `state_dict` keys.
 
 The standalone package needs only PyTorch. A complete system additionally needs
 a user-obtained MVGGT checkout and its dependencies, data and pretrained assets.
@@ -13,7 +18,7 @@ supplies no backbone, camera head, dataset loader, pretrained model, or tokenize
    dependencies, including its compiled/optional components where configured.
 2. Install this package with `python -m pip install -e /path/to/this/repository`.
 3. Run `tools/integrate_mvggt.py --upstream-source ... --output ...` as shown in the README.
-   It rewrites the local model AST, inserts only the original RPM logic, and
+   It rewrites the local model AST, inserts only the original GLC memory logic, and
    checks semantic anchors. An incompatible input fails instead of guessing.
 4. Keep the generated file in the external model namespace at
    `mvggt/models/variants/m93_rpm/model.py`. Ensure the external checkout is
@@ -29,13 +34,18 @@ this repository. This public repository contains no generated backbone file.
 
 | Condition | Target |
 |---|---|
-| `rpm` | `rpm.controls.MVGGT_M93_RPM` |
-| `shared_visual_read` | `rpm.controls.MVGGT_M93_SharedVisualRead` |
-| `no_visual_read` | `rpm.controls.MVGGT_M93_NoVisualRead` |
-| `self_only_composition` | `rpm.controls.MVGGT_M93_SelfOnlyComposition` |
-| `no_token_write` | `rpm.controls.MVGGT_M93_NoTokenWrite` |
-| `no_composed_write` | `rpm.controls.MVGGT_M93_NoComposedWrite` |
-| `plain_fusion` | `rpm.controls.MVGGT_M93_PlainFusion` |
+| `glc` | `rpm.controls.MVGGT_GLC` |
+| `shared_visual_read` | `rpm.controls.MVGGT_GLC_SharedVisualRead` |
+| `no_visual_read` | `rpm.controls.MVGGT_GLC_NoVisualRead` |
+| `self_only_composition` | `rpm.controls.MVGGT_GLC_SelfOnlyComposition` |
+| `no_token_write` | `rpm.controls.MVGGT_GLC_NoTokenWrite` |
+| `no_composed_write` | `rpm.controls.MVGGT_GLC_NoComposedWrite` |
+| `plain_fusion` | `rpm.controls.MVGGT_GLC_PlainFusion` |
+
+Every historical `MVGGT_M93_*` target remains available. In particular,
+`rpm.controls.MVGGT_M93_RPM` and the legacy `rpm` condition key identify the same
+base model as `rpm.controls.MVGGT_GLC`. Existing experiment identifiers and
+checkpoint keys do not need renaming. See [the mapping](../examples/model_targets.yaml).
 
 For a compatible upstream training entry, an example is:
 
@@ -43,8 +53,8 @@ For a compatible upstream training entry, an example is:
 accelerate launch --config_file configs/accelerate/ddp.yaml \
   --num_processes 1 scripts/train_mvggt.py \
   train=train_mvggt_refer_lowres \
-  model._target_=rpm.controls.MVGGT_M93_RPM \
-  name=rpm_train work_dir=/path/to/runs \
+  model._target_=rpm.controls.MVGGT_GLC \
+  name=glc_train work_dir=/path/to/runs \
   train_dataset.ScanNet.data_root=/path/to/multiview \
   test_dataset.ScanNet.data_root=/path/to/multiview \
   model.pretrained_model_name_or_path=/path/to/Pi3 \

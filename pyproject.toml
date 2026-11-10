@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "multiview-rpm"
 version = "0.1.0"
-description = "Recurrent phrase memory and controlled ablations for multiview referring segmentation"
+description = "GLC: Grounded Language Composition for Sparse Multi-View Referring Segmentation"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {file = "LICENSE"}
@@ -18,8 +18,8 @@ classifiers = [
 ]
 
 [project.urls]
-Repository = "https://github.com/songchuanle-1/RPM"
-Issues = "https://github.com/songchuanle-1/RPM/issues"
+Repository = "https://github.com/songchuanle-1/GLC"
+Issues = "https://github.com/songchuanle-1/GLC/issues"
 
 [tool.setuptools.packages.find]
 include = ["rpm*"]

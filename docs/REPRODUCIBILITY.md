@@ -1,4 +1,11 @@
-# Reproducibility and interpretation
+# GLC reproducibility and interpretation
+
+The current paper title is *GLC: Grounded Language Composition for Sparse
+Multi-View Referring Segmentation*. Historical RPM identifiers remain in the
+`rpm` Python package, model classes, integration path, and experiment provenance.
+The `MVGGT_GLC*` model targets are direct aliases of existing classes. This naming
+update does not reconstruct models, rename checkpoint keys, or change memory
+computation. Keep historical identifiers when matching an existing run.
 
 ## What the code preserves
 

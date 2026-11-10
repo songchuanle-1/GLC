@@ -1,6 +1,7 @@
 # Licensing scope and external dependencies
 
-The MIT license in this repository covers its original RPM extension modules,
+The MIT license in this repository covers its original GLC extension modules
+(the historical RPM implementation),
 interventions, ordinary-fusion control, thin model wrappers, integration tooling,
 tests, examples, and documentation. Original memory contributions were introduced
 by Chuanle Song; symbol-level provenance is recorded in `SOURCE_PROVENANCE.json`.

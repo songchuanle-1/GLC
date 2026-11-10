@@ -1,4 +1,8 @@
-"""Full model targets using a separately obtained and locally integrated MVGGT."""
+"""GLC model targets using a separately obtained and locally integrated MVGGT.
+
+Historical RPM class names remain intact for checkpoint and import compatibility.
+The GLC targets below are aliases of those classes, not new model definitions.
+"""
 
 from mvggt.models.variants.m93_rpm.model import MVGGT_M93_RPM
 
@@ -77,4 +81,15 @@ class MVGGT_M93_PlainFusion(MVGGT_M93_RPM):
     def __init__(self, *args, plain_fusion_seed=1111, **kwargs):
         super().__init__(*args, **kwargs)
         install_plain_fusion(self, initialization_seed=plain_fusion_seed)
+
+
+# Current paper/method names. Direct aliases preserve class identity, parameter
+# names, and state_dict keys used by the historical implementation.
+MVGGT_GLC = MVGGT_M93_RPM
+MVGGT_GLC_SharedVisualRead = MVGGT_M93_SharedVisualRead
+MVGGT_GLC_SelfOnlyComposition = MVGGT_M93_SelfOnlyComposition
+MVGGT_GLC_NoVisualRead = MVGGT_M93_NoVisualRead
+MVGGT_GLC_NoTokenWrite = MVGGT_M93_NoTokenWrite
+MVGGT_GLC_NoComposedWrite = MVGGT_M93_NoComposedWrite
+MVGGT_GLC_PlainFusion = MVGGT_M93_PlainFusion
 
