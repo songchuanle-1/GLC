@@ -18,8 +18,8 @@ classifiers = [
 ]
 
 [project.urls]
-Repository = "https://github.com/songchuanle-1/multiview_paper_project"
-Issues = "https://github.com/songchuanle-1/multiview_paper_project/issues"
+Repository = "https://github.com/songchuanle-1/grounded-language-states-for-sparse-multi-view-referring-segmentation"
+Issues = "https://github.com/songchuanle-1/grounded-language-states-for-sparse-multi-view-referring-segmentation/issues"
 
 [tool.setuptools.packages.find]
 include = ["rpm*"]

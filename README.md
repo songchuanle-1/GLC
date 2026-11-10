@@ -1,7 +1,8 @@
-# Recurrent Phrase Memory for Multiview Referring Segmentation
+# Grounded Language States for Sparse Multi-View Referring Segmentation
 
-Original **read → compose → write** extension modules and controlled ablations
-for multiview referring segmentation, built around an external MVGGT backbone.
+Research code for **Recurrent Phrase Memory (RPM)**, the **read → compose → write**
+language-state extension in *Grounded Language States for Sparse Multi-View
+Referring Segmentation*, built around an external MVGGT backbone.
 
 This release contains the method implementation, six controls, CPU tests, and
 a local integration tool. The backbone, datasets, pretrained assets, trained
@@ -33,8 +34,8 @@ Python 3.10+ and PyTorch 2.5+ are required. Install the appropriate
 [PyTorch build](https://pytorch.org/get-started/locally/) first, then:
 
 ```bash
-git clone https://github.com/songchuanle-1/multiview_paper_project.git
-cd multiview_paper_project
+git clone https://github.com/songchuanle-1/grounded-language-states-for-sparse-multi-view-referring-segmentation.git
+cd grounded-language-states-for-sparse-multi-view-referring-segmentation
 python -m pip install -e .
 python examples/module_demo.py
 python -m unittest discover -s tests -v
