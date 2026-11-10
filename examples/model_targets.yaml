@@ -1,0 +1,8 @@
+# Model targets for a separately obtained and locally integrated MVGGT.
+rpm: rpm.controls.MVGGT_M93_RPM
+shared_visual_read: rpm.controls.MVGGT_M93_SharedVisualRead
+no_visual_read: rpm.controls.MVGGT_M93_NoVisualRead
+self_only_composition: rpm.controls.MVGGT_M93_SelfOnlyComposition
+no_token_write: rpm.controls.MVGGT_M93_NoTokenWrite
+no_composed_write: rpm.controls.MVGGT_M93_NoComposedWrite
+plain_fusion: rpm.controls.MVGGT_M93_PlainFusion

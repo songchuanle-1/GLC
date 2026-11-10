@@ -1,0 +1,31 @@
+{
+  "scope": "Original extension symbols only; no upstream backbone, training tree, model assets or private history distributed.",
+  "original_contribution_commits": {
+    "depth_word_memory": "245edcd",
+    "recurrent_phrase_memory": "53ae001"
+  },
+  "symbols": [
+    {
+      "export": "rpm/modules.py",
+      "source_relative": "source/multiview/mvggt/models/variants/m93_rpm/model.py",
+      "symbols": [
+        "DepthWiseWordMemory",
+        "RecurrentPhraseMemory"
+      ],
+      "implementation_AST_sha256": "7381c0070d2d228241702864c519dede5d6e278805672f151ad59286eba0198f"
+    },
+    {
+      "export": "rpm/fusion.py",
+      "source_relative": "source/multiview/mvggt/models/variants/innovation_controls/plain_fusion.py",
+      "symbols": [
+        "PlainReadWriteFusion",
+        "PlainTokenAttentionWrite",
+        "parameter_budget",
+        "install_plain_fusion"
+      ],
+      "implementation_AST_sha256": "782021999dfea2e392c4c8b472071f417409cbd74f5e862f911944f60bdbd3f8"
+    }
+  ],
+  "interventions_source_sha256": "16eed8e80fd6a0543e8ca50cc346e4a66e95132663e8dc49887f870fed9baba9",
+  "extraction_date": "2026-11-10"
+}

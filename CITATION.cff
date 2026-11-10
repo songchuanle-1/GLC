@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this software and acknowledge the external MVGGT backbone separately."
+title: "Recurrent Phrase Memory for Multiview Referring Segmentation"
+type: software
+authors:
+  - family-names: Song
+    given-names: Chuanle
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/songchuanle-1/multiview_paper_project"
